@@ -36,7 +36,9 @@ if [ ! -e $PYTHON_VERSION_NUM ] ; then
     ./configure && \
     make install && \
     curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py && \
-    python /tmp/get-pip.py"
+    python /tmp/get-pip.py && \
+    apt-get install -y python-dev && \
+    pip install --upgrade awscli"
 fi
 
 # if [ ! -e $PHP_VERSION_NUM ] ; then
