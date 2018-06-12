@@ -11,7 +11,8 @@ if [ ! -e $RUBY_VERSION_NUM ] ; then
     ./configure && \
     make -j4 && \
     make install && \
-    ruby -v"
+    ruby -v && \
+    gem install bundler"
 fi
 
 if [ ! -e $NODE_VERSION_NUM ] ; then
@@ -23,7 +24,8 @@ if [ ! -e $NODE_VERSION_NUM ] ; then
     make -j4 && \
     make install && \
     cd .. && \
-    rm -r node-v$NODE_VERSION_NUM"
+    rm -r node-v$NODE_VERSION_NUM && \
+    npm install --global yarn"
 fi
 
 if [ ! -e $PYTHON_VERSION_NUM ] ; then
@@ -32,7 +34,9 @@ if [ ! -e $PYTHON_VERSION_NUM ] ; then
     rm Python-$PYTHON_VERSION_NUM.tgz && \
     cd Python-$PYTHON_VERSION_NUM && \
     ./configure && \
-    make install"
+    make install && \
+    curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py && \
+    python /tmp/get-pip.py"
 fi
 
 # if [ ! -e $PHP_VERSION_NUM ] ; then
