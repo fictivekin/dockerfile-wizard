@@ -4,17 +4,17 @@ image_config: &image_config
     # either as project-specific environment variables
     # or as resources in your organization's org-global Context
 
-    IMAGE_NAME: deb-builder-stretch-py3
-    IMAGE_TAG: 2018061501
+    IMAGE_NAME: arm-compiler
+    IMAGE_TAG: 2018062801
 
     # NOTE: if you're modifying this config.yml file manually
     # rather than using the included setup script,
     # make sure you also add the values of your IMAGE_NAME & IMAGE_TAG variables
     # to the `test_image` job (line 55)
 
-    LINUX_VERSION: DEBIAN_STRETCH
+    LINUX_VERSION: UBUNTU_TRUSTY
     PYTHON_VERSION_NUM: 3.6.3
-    JAVA: false
+    JAVA: true
     MYSQL_CLIENT: false
     POSTGRES_CLIENT: false
     DOCKERIZE: false
@@ -46,6 +46,7 @@ workflows:
               filters:
                  branches:
                      only:
+                         - arm-compiler
                          - deb-builder
                          - deb-builder-jessie-py2
                          - deb-builder-jessie-py3
