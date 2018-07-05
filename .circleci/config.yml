@@ -5,7 +5,7 @@ image_config: &image_config
     # or as resources in your organization's org-global Context
 
     IMAGE_NAME: arm-compiler
-    IMAGE_TAG: 2018.07.04.01
+    IMAGE_TAG: 2018.07.05.01
 
     # NOTE: if you're modifying this config.yml file manually
     # rather than using the included setup script,
@@ -31,6 +31,7 @@ jobs:
         steps:
             - checkout
             - run: bash scripts/generate.sh > Dockerfile
+            - run: bash scripts/add-arm-helpers.sh >> Dockerfile
             - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
             - run: docker build -t $DOCKER_USERNAME/$IMAGE_NAME:$IMAGE_TAG .
             - run: docker push $DOCKER_USERNAME/$IMAGE_NAME:$IMAGE_TAG && sleep 10
