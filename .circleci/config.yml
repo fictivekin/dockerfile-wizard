@@ -5,7 +5,7 @@ image_config: &image_config
     # or as resources in your organization's org-global Context
 
     IMAGE_NAME: node-8-11-python-3-6
-    IMAGE_TAG: 2018.07.25.01
+    IMAGE_TAG: 2018.07.26.01
 
     # NOTE: if you're modifying this config.yml file manually
     # rather than using the included setup script,
